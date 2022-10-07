@@ -16,9 +16,13 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+
+    video::-webkit-media-controls {
+      display:none !important;
+    }
     </style>
  
-<body onclick="openFullscreen()"><video id="myvideo" width="1920px" height="1080px" loop
+<body><video id="myvideo" width="1920px" height="1080px" loop
         autoplay>
         <source src="RickRoll.mp4" type="video/mp4"></video>
     <script>
@@ -31,7 +35,9 @@
             openFullscreen()
         };
         document.onmousedown = function() {
-            openFullscreen()
+            setTimeout(function() {
+                openFullscreen()
+            }, 500)
         };
         document.oncontextmenu = function(e) {
             e.preventDefault();
