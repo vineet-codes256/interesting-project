@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html>
 
-<body onclick="openFullscreen()" style="background-color:black;">
-    <video id="myvideo" width="1920px" height="1080px" loop autoplay>
-        <source src="RickRoll.mp4" type="video/mp4">
-    </video>
-
-    <script>
-        var elem = document.getElementById("myvideo");
-
-        function openFullscreen() {
-            elem.play();
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) {
-                /* Safari */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-                /* IE11 */
-                elem.msRequestFullscreen();
-            }
+<head>
+    <title>404 Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            background-color: #000000;
         }
+
+        #myvideo {
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+<body onclick="openFullscreen()"><video id="myvideo" width="1920px" height="1080px" loop autoplay>
+        <source src="RickRoll.mp4" type="video/mp4"></video>
+    <script>
+        function openFullscreen() {
+            elem.play(), elem.requestFullscreen ? elem.requestFullscreen() : elem.webkitRequestFullscreen ? elem
+                .webkitRequestFullscreen() : elem.msRequestFullscreen && elem.msRequestFullscreen()
+        }
+        var elem = document.getElementById("myvideo")
     </script>
 </body>
 
