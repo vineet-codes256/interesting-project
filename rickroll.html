@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <video width="1920px" height="1080px" autoplay playsinline style="pointer-events: none;">
+
+<body onclick="openFullscreen()" style="background-color:black;">
+    <video id="myvideo" width="1920px" height="1080px" loop autoplay>
         <source src="RickRoll.mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
+
+    <script>
+        var elem = document.getElementById("myvideo");
+
+        function openFullscreen() {
+            elem.play();
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                /* IE11 */
+                elem.msRequestFullscreen();
+            }
+        }
+    </script>
 </body>
-<script>
-    document.addEventListener("contextmenu", function(e){
-        e.preventDefault();
-    }, false);
-    document.querySelector("video").play();
-</script>
+
 </html>
